@@ -16,4 +16,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # Répertoire où se trouvent tes fichiers statiques (racine ici)
+          publish_dir: ./  # Répertoire racine, change à "./docs" si nécessaire
