@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Ajoute cette ligne pour donner les permissions d'écriture
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -16,4 +18,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # Répertoire racine, change à "./docs" si nécessaire
+          publish_dir: ./  # Répertoire racine
