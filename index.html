@@ -3,21 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Page Web</title>
+    <title>Dashboard Animé</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
-        h1 {
-            color: #333;
+        @keyframes slideUp {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .slide-up {
+            animation: slideUp 1.5s ease-in-out;
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body>
-   <h1>Bienvenue sur ma page web !</h1>
-    <p>Ceci est une page HTML simple pour tester le déploiement sur Azure via GitHub.</p>
-    <p>Test CI/CD - Déploiement automatique</p>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-6">
+        <!-- En-tête Animé -->
+        <h1 class="text-4xl font-bold text-gray-800 text-center fade-in mb-6">Bienvenue sur mon Dashboard Animé !</h1>
+        <p class="text-lg text-gray-600 text-center slide-up mb-8">Un tableau de bord interactif pour suivre tes projets.</p>
+
+        <!-- Grille de Cartes -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div class="card bg-white p-6 rounded-lg shadow-md fade-in">
+                <h2 class="text-xl font-semibold text-blue-600">Projets Actifs</h2>
+                <p class="text-3xl font-bold text-gray-800 mt-2">12</p>
+            </div>
+            <div class="card bg-white p-6 rounded-lg shadow-md fade-in" style="animation-delay: 0.2s">
+                <h2 class="text-xl font-semibold text-green-600">Tâches Complétées</h2>
+                <p class="text-3xl font-bold text-gray-800 mt-2">45</p>
+            </div>
+            <div class="card bg-white p-6 rounded-lg shadow-md fade-in" style="animation-delay: 0.4s">
+                <h2 class="text-xl font-semibold text-red-600">Alertes</h2>
+                <p class="text-3xl font-bold text-gray-800 mt-2">3</p>
+            </div>
+        </div>
+
+        <!-- Tableau Interactif -->
+        <div class="bg-white p-6 rounded-lg shadow-md slide-up">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Statistiques des Projets</h2>
+            <table class="w-full text-left">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="p-3">Projet</th>
+                        <th class="p-3">Statut</th>
+                        <th class="p-3">Progression</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b hover:bg-gray-100">
+                        <td class="p-3">Projet DevOps</td>
+                        <td class="p-3 text-green-600">En Cours</td>
+                        <td class="p-3">85%</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-100">
+                        <td class="p-3">Site Web Animé</td>
+                        <td class="p-3 text-blue-600">Planifié</td>
+                        <td class="p-3">50%</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-100">
+                        <td class="p-3">Application Mobile</td>
+                        <td class="p-3 text-red-600">En Attente</td>
+                        <td class="p-3">20%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
